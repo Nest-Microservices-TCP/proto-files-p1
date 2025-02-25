@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+package rooms.rates;
+
+message FindOneRateRequest {
+  string rate_id = 1;
+}

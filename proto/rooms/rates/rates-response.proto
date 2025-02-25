@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package rooms.rates;
+
+import "rates-enums.proto";
+
+message Rate {
+  string rate_id = 1;
+  string name = 2;
+  string duration = 3;
+  float accommodation_cost = 4;
+  float extra_accommodation_cost = 5;
+  float overtime_cost = 6;
+  float extra_people_cost = 7;
+  float early_check_in_cost = 8;
+  rooms.rates.AccommodationType accommodation_type = 9;
+  string check_in_hour = 10;
+  string checkout_hour = 11;
+}
