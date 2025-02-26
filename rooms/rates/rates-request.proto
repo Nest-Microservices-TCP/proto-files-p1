@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package rooms.rates;
 
-import "rates-enums.proto";
+import "rooms/rates/rates-enums.proto";
 
 message FindOneRateRequest {
   string rate_id = 1;
