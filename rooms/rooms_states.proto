@@ -2,6 +2,8 @@ syntax = "proto3";
 
 package rooms.roomsStates;
 
+import "google/protobuf/empty.proto";
+
 // Enums ---------------------------------------
 
 // ---------------------------------------------
@@ -29,6 +31,6 @@ message GetRoomStateRequest {
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service RoomsStatesService {
-  rpc CreateRoomState (CreateRoomStateRequest) returns (RoomState);
+  rpc CreateRoomState (CreateRoomStateRequest) returns (google.protobuf.Empty);
   rpc GetRoomState (GetRoomStateRequest) returns (RoomState);
 }
