@@ -21,6 +21,10 @@ message CreateAmenityRequest {
   optional string description = 2;
 }
 
+message GetAmenityRequest {
+  string amenity_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -28,4 +32,5 @@ message CreateAmenityRequest {
 // RPC Methods ----------------------------------
 service AmenitiesService {
   rpc CreateAmenity (CreateAmenityRequest) returns (google.protobuf.Empty);
+  rpc GetAmenity (GetAmenityRequest) returns (Amenity);
 }
