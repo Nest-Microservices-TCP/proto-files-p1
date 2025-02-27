@@ -14,9 +14,16 @@ message RoomState {
 
 // ---------------------------------------------
 // Request Messages ----------------------------
+message CreateRoomStateRequest {
+  string name = 1;
+  optional string description = 2;
+}
 
 // ----------------------------------------------
 // Response Messages ----------------------------
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
+service RoomsStatesService {
+  rpc CreateRoomState (CreateRoomStateRequest) returns (RoomState);
+}
