@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package rooms.amenities;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Amenity {
+  string amenity_id = 1;
+  string name = 2;
+  string description = 3;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateAmenityRequest {
+  string name = 1;
+  optional string description = 2;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service AmenitiesService {
+  rpc CreateAmenity (CreateAmenityRequest) returns (google.protobuf.Empty);
+}
