@@ -1,8 +1,0 @@
-syntax = "proto3";
-
-package rooms.rates;
-
-enum AccommodationType {
-  HOTEL = 0;
-  MOTEL = 1;
-}

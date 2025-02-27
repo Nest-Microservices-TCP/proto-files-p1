@@ -1,0 +1,60 @@
+syntax = "proto3";
+
+package rooms.rates;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+enum AccommodationType {
+  HOTEL = 0;
+  MOTEL = 1;
+}
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Rate {
+  string rate_id = 1;
+  string name = 2;
+  string duration = 3;
+  float accommodation_cost = 4;
+  float extra_accommodation_cost = 5;
+  float overtime_cost = 6;
+  float extra_people_cost = 7;
+  float early_check_in_cost = 8;
+  AccommodationType accommodation_type = 9;
+  string check_in_hour = 10;
+  string checkout_hour = 11;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateRateRequest {
+  string name = 1;
+  string duration = 2;
+  float accommodation_cost = 3;
+  float extra_accommodation_cost = 4;
+  float overtime_cost = 5;
+  float extra_people_cost = 6;
+  float early_check_in_cost = 7;
+  AccommodationType accommodation_type = 8;
+  string check_in_hour = 9;
+  string checkout_hour = 10;
+}
+
+message GetRateRequest {
+  string rate_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message ListRatesResponse {
+  repeated Rate rates = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service RatesService {
+  rpc CreateRate (CreateRateRequest) returns (google.protobuf.Empty);
+  rpc GetRate (GetRateRequest) returns (Rate);
+  rpc ListRates (google.protobuf.Empty) returns (ListRatesResponse);
+}
