@@ -27,10 +27,14 @@ message GetAmenityRequest {
 
 // ----------------------------------------------
 // Response Messages ----------------------------
+message ListAmenitiesResponse {
+  repeated Amenity amenities = 1;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service AmenitiesService {
   rpc CreateAmenity (CreateAmenityRequest) returns (google.protobuf.Empty);
   rpc GetAmenity (GetAmenityRequest) returns (Amenity);
+  rpc ListAmenities (google.protobuf.Empty) returns (ListAmenitiesResponse);
 }
