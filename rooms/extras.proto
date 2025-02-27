@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package rooms.extras;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Extra {
+  string extra_id = 1;
+  string name = 2;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateExtraRequest {
+  string name = 1;
+}
+
+message GetExtraRequest {
+  string extra_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message ListExtrasResponse {
+  repeated Extra extras = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service ExtrasService {
+  rpc CreateExtra (CreateExtraRequest) returns (google.protobuf.Empty);
+  rpc GetExtra (GetExtraRequest) returns (Extra);
+  rpc ListExtras (google.protobuf.Empty) returns (ListExtrasResponse);
+}
