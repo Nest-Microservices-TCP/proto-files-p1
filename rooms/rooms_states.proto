@@ -19,6 +19,10 @@ message CreateRoomStateRequest {
   optional string description = 2;
 }
 
+message GetRoomStateRequest {
+  string room_state_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -26,4 +30,5 @@ message CreateRoomStateRequest {
 // RPC Methods ----------------------------------
 service RoomsStatesService {
   rpc CreateRoomState (CreateRoomStateRequest) returns (RoomState);
+  rpc GetRoomState (GetRoomStateRequest) returns (RoomState);
 }
