@@ -17,20 +17,20 @@ message CreateRoomRequest {
   int32 number = 1;
 }
 
-message GetRoomRequest {
+message FindOneRoomRequest {
   string room_id = 1;
 }
 
 // ----------------------------------------------
 // Response Messages ----------------------------
-message ListRoomsResponse {
+message FindRoomsResponse {
   repeated Room rooms = 1;
 }
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service RoomsService {
-  rpc CreateRoom (CreateRoomRequest) returns (google.protobuf.Empty);
-  rpc GetRoom (GetRoomRequest) returns (Room);
-  rpc ListRooms (google.protobuf.Empty) returns (ListRoomsResponse);
+  rpc Save (CreateRoomRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneRoomRequest) returns (Room);
+  rpc Find (google.protobuf.Empty) returns (FindRoomsResponse);
 }

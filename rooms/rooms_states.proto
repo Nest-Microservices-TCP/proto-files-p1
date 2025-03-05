@@ -21,7 +21,7 @@ message CreateRoomStateRequest {
   optional string description = 2;
 }
 
-message GetRoomStateRequest {
+message FindOneRoomStateRequest {
   string room_state_id = 1;
 }
 
@@ -31,6 +31,6 @@ message GetRoomStateRequest {
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service RoomsStatesService {
-  rpc CreateRoomState (CreateRoomStateRequest) returns (google.protobuf.Empty);
-  rpc GetRoomState (GetRoomStateRequest) returns (RoomState);
+  rpc Save (CreateRoomStateRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneRoomStateRequest) returns (RoomState);
 }
