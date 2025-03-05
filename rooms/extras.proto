@@ -19,20 +19,20 @@ message CreateExtraRequest {
   string name = 1;
 }
 
-message GetExtraRequest {
+message FindOneExtraRequest {
   string extra_id = 1;
 }
 
 // ----------------------------------------------
 // Response Messages ----------------------------
-message ListExtrasResponse {
+message FindExtrasResponse {
   repeated Extra extras = 1;
 }
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service ExtrasService {
-  rpc CreateExtra (CreateExtraRequest) returns (google.protobuf.Empty);
-  rpc GetExtra (GetExtraRequest) returns (Extra);
-  rpc ListExtras (google.protobuf.Empty) returns (ListExtrasResponse);
+  rpc Save (CreateExtraRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneExtraRequest) returns (Extra);
+  rpc Find (google.protobuf.Empty) returns (FindExtrasResponse);
 }
