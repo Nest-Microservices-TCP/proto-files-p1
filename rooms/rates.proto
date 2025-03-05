@@ -41,20 +41,20 @@ message CreateRateRequest {
   string checkout_hour = 10;
 }
 
-message GetRateRequest {
+message FindOneRateRequest {
   string rate_id = 1;
 }
 
 // ----------------------------------------------
 // Response Messages ----------------------------
-message ListRatesResponse {
+message FindRatesResponse {
   repeated Rate rates = 1;
 }
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service RatesService {
-  rpc CreateRate (CreateRateRequest) returns (google.protobuf.Empty);
-  rpc GetRate (GetRateRequest) returns (Rate);
-  rpc ListRates (google.protobuf.Empty) returns (ListRatesResponse);
+  rpc Save (CreateRateRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneRateRequest) returns (Rate);
+  rpc Find (google.protobuf.Empty) returns (FindRatesResponse);
 }
