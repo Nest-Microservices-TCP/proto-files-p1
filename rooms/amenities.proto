@@ -21,20 +21,20 @@ message CreateAmenityRequest {
   optional string description = 2;
 }
 
-message GetAmenityRequest {
+message FindOneAmenityRequest {
   string amenity_id = 1;
 }
 
 // ----------------------------------------------
 // Response Messages ----------------------------
-message ListAmenitiesResponse {
+message FindAmenitiesResponse {
   repeated Amenity amenities = 1;
 }
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service AmenitiesService {
-  rpc CreateAmenity (CreateAmenityRequest) returns (google.protobuf.Empty);
-  rpc GetAmenity (GetAmenityRequest) returns (Amenity);
-  rpc ListAmenities (google.protobuf.Empty) returns (ListAmenitiesResponse);
+  rpc Save (CreateAmenityRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneAmenityRequest) returns (Amenity);
+  rpc Find (google.protobuf.Empty) returns (FindAmenitiesResponse);
 }
