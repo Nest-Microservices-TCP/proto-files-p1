@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package rooms.roomsStates;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message RoomType {
+  string room_type_id = 1;
+  string name = 2;
+  optional string description = 3;
+  optional int32 included_people = 4;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateRoomTypeRequest {
+  string name = 1;
+  optional string description = 2;
+  optional int32 included_people = 3;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service RoomsTypesService {
+  rpc Save (CreateRoomTypeRequest) returns (google.protobuf.Empty);
+}
