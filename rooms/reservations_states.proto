@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+package rooms.reservationsStates;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message ReservationState {
+  string reservation_state_id = 1;
+  string name = 2;
+  optional string description = 3;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateReservationStateRequest {
+  string name = 1;
+  optional string description = 2;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service ReservationsStatesService {
+  rpc Save (CreateReservationStateRequest) returns (google.protobuf.Empty);
+}
