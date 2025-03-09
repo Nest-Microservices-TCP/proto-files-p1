@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rooms.roomsStates;
+package rooms.roomsTypes;
 
 import "google/protobuf/empty.proto";
 

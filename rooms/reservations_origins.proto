@@ -1,6 +1,6 @@
 syntax = "proto3";
 
-package rooms.reservationsStates;
+package rooms.reservationsOrigins;
 
 import "google/protobuf/empty.proto";
 
