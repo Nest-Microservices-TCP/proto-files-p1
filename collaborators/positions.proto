@@ -1,0 +1,40 @@
+syntax = "proto3";
+
+package collaborators.positions;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Position {
+  string position_id = 1;
+  string name = 2;
+  optional string description = 3;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreatePositionRequest {
+  string name = 1;
+  optional string description = 2;
+}
+
+message FindOnePositionRequest {
+  string position_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message FindPositionsResponse {
+  repeated Position positions = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service PositionsService {
+  rpc Save (CreatePositionRequest) returns (google.protobuf.Empty);
+  rpc Find (google.protobuf.Empty) returns (FindPositionsResponse);
+  rpc FindOne (FindOnePositionRequest) returns (Position);
+}
