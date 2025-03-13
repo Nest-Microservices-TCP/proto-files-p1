@@ -1,0 +1,51 @@
+syntax = "proto3";
+
+package collaborators.collaborators;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Collaborator {
+  string collaborator_id = 1;
+  string name = 2;
+  string last_name = 3;
+  bool in_turn = 4;
+  optional string phone = 5;
+  optional string email = 6;
+  optional string direction = 7;
+  optional double salary = 8;
+  optional string profile_photo = 9;
+}
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateCollaboratorRequest {
+  string name = 1;
+  string last_name = 2;
+  optional bool in_turn = 3;
+  optional string phone = 4;
+  optional string email = 5;
+  optional string direction = 6;
+  optional double salary = 7;
+  optional string profile_photo = 8;
+}
+
+message FindOneCollaboratorRequest {
+  string collaborator_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message FindCollaboratorsResponse {
+  repeated Collaborator collaborators = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service CollaboratorsService {
+  rpc Save (CreateCollaboratorRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneCollaboratorRequest) returns (Collaborator); 
+  rpc Find (google.protobuf.Empty) returns (Collaborator);
+}
