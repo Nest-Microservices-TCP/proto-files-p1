@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package collaborators.areas;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Area {
+  string area_id = 1;
+  string name = 2;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateAreaRequest {
+  string name = 1;
+}
+
+message FindOneAreaRequest {
+  string area_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message FindAreasResponse {
+  repeated Area areas = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service AreasService {
+  rpc Save (CreateAreaRequest) returns (google.protobuf.Empty);
+  rpc Find (google.protobuf.Empty) returns (FindAreasResponse);
+  rpc FindOne (FindOneAreaRequest) returns (Area);
+}
