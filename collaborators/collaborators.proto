@@ -46,6 +46,6 @@ message FindCollaboratorsResponse {
 // RPC Methods ----------------------------------
 service CollaboratorsService {
   rpc Save (CreateCollaboratorRequest) returns (google.protobuf.Empty);
+  rpc Find (google.protobuf.Empty) returns (FindCollaboratorsResponse);
   rpc FindOne (FindOneCollaboratorRequest) returns (Collaborator); 
-  rpc Find (google.protobuf.Empty) returns (Collaborator);
 }
