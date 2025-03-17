@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package collaborators.workShifts;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message WorkShift {
+  string work_shift_id = 1;
+  string name = 2;
+  string check_in_time = 3;
+  string departure_time = 4;
+  bool is_shift_open = 5;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateWorkShiftRequest {
+  string name = 2;
+  string check_in_time = 3;
+  string departure_time = 4;
+  optional bool is_shift_open = 5;
+}
+
+message FindOneWorkShiftRequest {
+  string work_shift_id = 1;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+message FindWorkShiftsResponse {
+  repeated WorkShift work_shifts = 1;
+}
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service WorkShiftsService {
+  rpc Save (CreateWorkShiftRequest) returns (google.protobuf.Empty);
+  rpc Find(google.protobuf.Empty) returns (FindWorkShiftsResponse);
+  rpc FindOne (FindOneWorkShiftRequest) returns (WorkShift);
+}
