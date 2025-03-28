@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+package transactions.paymentsTypes;
+
+import "google/protobuf/empty.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message PaymentType {
+  string payment_type_id = 1;
+  string name = 2;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreatePaymentTypeRequest {
+  string name = 1;
+}
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service PaymentsTypesService {
+  rpc Save (CreatePaymentTypeRequest) returns (google.protobuf.Empty);
+}
