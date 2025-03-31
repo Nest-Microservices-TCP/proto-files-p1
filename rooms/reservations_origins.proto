@@ -27,10 +27,14 @@ message FindOneReservationOriginRequest {
 
 // ----------------------------------------------
 // Response Messages ----------------------------
+message FindReservationsOriginsResponse {
+  repeated ReservationOrigin reservations_origins = 1;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service ReservationsOriginsService {
   rpc Save (CreateReservationOriginRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneReservationOriginRequest) returns (ReservationOrigin);
+  rpc Find (google.protobuf.Empty) returns (FindReservationsOriginsResponse);
 }
