@@ -21,6 +21,10 @@ message CreateReservationOriginRequest {
   optional string description = 2;
 }
 
+message FindOneReservationOriginRequest {
+  string reservation_origin_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -28,4 +32,5 @@ message CreateReservationOriginRequest {
 // RPC Methods ----------------------------------
 service ReservationsOriginsService {
   rpc Save (CreateReservationOriginRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneReservationOriginRequest) returns (ReservationOrigin);
 }
