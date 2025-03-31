@@ -22,12 +22,17 @@ message CreatePaymentTypeRequest {
 message FindOnePaymentTypeRequest {
   string payment_type_id = 1;
 }
+
 // ----------------------------------------------
 // Response Messages ----------------------------
+message FindPaymentsTypesResponse {
+  repeated PaymentType payments_types = 1;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service PaymentsTypesService {
   rpc Save (CreatePaymentTypeRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOnePaymentTypeRequest) returns (PaymentType);
+  rpc Find (google.protobuf.Empty) returns (FindPaymentsTypesResponse);
 }
