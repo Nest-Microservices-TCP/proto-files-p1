@@ -18,6 +18,10 @@ message PaymentType {
 message CreatePaymentTypeRequest {
   string name = 1;
 }
+
+message FindOnePaymentTypeRequest {
+  string payment_type_id = 1;
+}
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -25,4 +29,5 @@ message CreatePaymentTypeRequest {
 // RPC Methods ----------------------------------
 service PaymentsTypesService {
   rpc Save (CreatePaymentTypeRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOnePaymentTypeRequest) returns (PaymentType);
 }
