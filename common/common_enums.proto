@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package common.enums;
+
+enum Currency {
+  MXN = 0;
+  USD = 1;
+}
+
+enum PaymentState {
+  PAID = 0;
+  PENDING_PAYMENT = 1;
+  REFUNDED = 2;
+}
