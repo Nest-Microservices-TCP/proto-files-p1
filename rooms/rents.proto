@@ -1,0 +1,62 @@
+syntax = "proto3";
+
+package rooms.rents;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+import "proto-files/rooms/rents_extras.proto";
+import "proto-files/common/common_enums.proto";
+
+// Enums ---------------------------------------
+enum EntryType {
+  WALKING = 0;
+  BY_CAR = 1;
+}
+
+enum RentState {
+  CANCELLED = 0;
+  ACTIVE = 1;
+  FINISHED = 2;
+}
+
+enum AccommodationType {
+  HOTEL = 0;
+  MOTEL = 1;
+}
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Rent {
+  string rent_id = 1;
+  int32 folio = 2;
+  google.protobuf.Timestamp checkout_date = 3;
+  google.protobuf.Timestamp departure_at = 4;
+  EntryType entry_type = 5;
+  int64 total_income_cents = 6;
+  common.enums.Currency currency = 7;
+  RentState rent_state = 8;
+  common.enums.PaymentState payment_state = 9;
+  string guest_name = 10;
+  AccommodationType accommodation_type = 11;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateRentRequest {
+  string rate_id = 1;
+  string room_id = 2;
+  optional string guest_name = 3;
+  AccommodationType accommodation_type = 4;
+  EntryType entry_type = 5;
+  optional bool early_check_in = 6;
+  repeated rooms.rentsExtras.RentExtra rents_extras = 7;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service RentsService {
+  rpc Save (CreateRentRequest) returns (google.protobuf.Empty);
+}
