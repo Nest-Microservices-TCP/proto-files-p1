@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+package rooms.rentsExtras;
+
+import "proto-files/common/common_types.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message RentExtra {
+  string rent_extra_id = 1;
+  int32 quantity = 2;
+  common.types.Money total = 3;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
