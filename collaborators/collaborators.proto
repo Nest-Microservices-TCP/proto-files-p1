@@ -36,6 +36,10 @@ message FindOneCollaboratorRequest {
   string collaborator_id = 1;
 }
 
+message FindCollaboratorsByIdsRequest {
+  repeated string collaborators_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindCollaboratorsResponse {
@@ -47,5 +51,6 @@ message FindCollaboratorsResponse {
 service CollaboratorsService {
   rpc Save (CreateCollaboratorRequest) returns (google.protobuf.Empty);
   rpc Find (google.protobuf.Empty) returns (FindCollaboratorsResponse);
-  rpc FindOne (FindOneCollaboratorRequest) returns (Collaborator); 
+  rpc FindOne (FindOneCollaboratorRequest) returns (Collaborator);
+  rpc FindByIds (FindCollaboratorsByIdsRequest) returns (FindCollaboratorsResponse);
 }
