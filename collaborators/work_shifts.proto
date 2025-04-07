@@ -29,6 +29,10 @@ message FindOneWorkShiftRequest {
   string work_shift_id = 1;
 }
 
+message FindWorkShiftsByIdsRequest {
+  repeated string work_shifts_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindWorkShiftsResponse {
@@ -41,4 +45,5 @@ service WorkShiftsService {
   rpc Save (CreateWorkShiftRequest) returns (google.protobuf.Empty);
   rpc Find(google.protobuf.Empty) returns (FindWorkShiftsResponse);
   rpc FindOne (FindOneWorkShiftRequest) returns (WorkShift);
+  rpc FindByIds (FindWorkShiftsByIdsRequest) returns (FindWorkShiftsResponse);
 }
