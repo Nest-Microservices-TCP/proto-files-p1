@@ -25,6 +25,10 @@ message FindOnePositionRequest {
   string position_id = 1;
 }
 
+message FindPositionsByIdsRequest {
+  repeated string positions_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindPositionsResponse {
@@ -37,4 +41,5 @@ service PositionsService {
   rpc Save (CreatePositionRequest) returns (google.protobuf.Empty);
   rpc Find (google.protobuf.Empty) returns (FindPositionsResponse);
   rpc FindOne (FindOnePositionRequest) returns (Position);
+  rpc FindByIds (FindPositionsByIdsRequest) returns (FindPositionsResponse);
 }
