@@ -25,6 +25,10 @@ message FindOneRoomStateRequest {
   string room_state_id = 1;
 }
 
+message FindRoomsStatesByIdsRequest {
+  repeated string rooms_states_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindRoomsStatesResponse {
@@ -37,4 +41,5 @@ service RoomsStatesService {
   rpc Save (CreateRoomStateRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneRoomStateRequest) returns (RoomState);
   rpc Find (google.protobuf.Empty) returns (FindRoomsStatesResponse);
+  rpc FindByIds (FindRoomsStatesByIdsRequest) returns (FindRoomsStatesResponse);
 }
