@@ -21,6 +21,10 @@ message FindOneRoomRequest {
   string room_id = 1;
 }
 
+message FindRoomsByIdsRequest {
+  repeated string rooms_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindRoomsResponse {
@@ -33,4 +37,5 @@ service RoomsService {
   rpc Save (CreateRoomRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneRoomRequest) returns (Room);
   rpc Find (google.protobuf.Empty) returns (FindRoomsResponse);
+  rpc FindByIds (FindRoomsByIdsRequest) returns (FindRoomsResponse);
 }
