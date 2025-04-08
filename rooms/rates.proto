@@ -45,6 +45,10 @@ message FindOneRateRequest {
   string rate_id = 1;
 }
 
+message FindRatesByIdsRequest {
+  repeated string rates_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindRatesResponse {
@@ -57,4 +61,5 @@ service RatesService {
   rpc Save (CreateRateRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneRateRequest) returns (Rate);
   rpc Find (google.protobuf.Empty) returns (FindRatesResponse);
+  rpc FindByIds (FindRatesByIdsRequest) returns (FindRatesResponse);
 }
