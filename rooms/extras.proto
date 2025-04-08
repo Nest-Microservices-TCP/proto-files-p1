@@ -23,6 +23,10 @@ message FindOneExtraRequest {
   string extra_id = 1;
 }
 
+message FindExtrasByIdsRequest {
+  repeated string extras_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindExtrasResponse {
@@ -35,4 +39,5 @@ service ExtrasService {
   rpc Save (CreateExtraRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneExtraRequest) returns (Extra);
   rpc Find (google.protobuf.Empty) returns (FindExtrasResponse);
+  rpc FindByIds (FindExtrasByIdsRequest) returns (FindExtrasResponse);
 }
