@@ -21,6 +21,10 @@ message CreateReservationStateRequest {
   optional string description = 2;
 }
 
+message FindOneReservationStateRequest {
+  string reservation_state_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -28,4 +32,5 @@ message CreateReservationStateRequest {
 // RPC Methods ----------------------------------
 service ReservationsStatesService {
   rpc Save (CreateReservationStateRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneReservationStateRequest) returns (ReservationState);
 }
