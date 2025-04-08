@@ -25,6 +25,10 @@ message FindOneAmenityRequest {
   string amenity_id = 1;
 }
 
+message FindAmenitiesByIdsRequest {
+  repeated string amenities_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindAmenitiesResponse {
@@ -37,4 +41,5 @@ service AmenitiesService {
   rpc Save (CreateAmenityRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneAmenityRequest) returns (Amenity);
   rpc Find (google.protobuf.Empty) returns (FindAmenitiesResponse);
+  rpc FindByIds (FindAmenitiesByIdsRequest) returns (FindAmenitiesResponse);
 }
