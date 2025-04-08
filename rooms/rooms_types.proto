@@ -23,6 +23,10 @@ message CreateRoomTypeRequest {
   optional int32 included_people = 3;
 }
 
+message FindOneRoomTypeRequest {
+  string room_type_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -30,4 +34,5 @@ message CreateRoomTypeRequest {
 // RPC Methods ----------------------------------
 service RoomsTypesService {
   rpc Save (CreateRoomTypeRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneRoomTypeRequest) returns (RoomType);
 }
