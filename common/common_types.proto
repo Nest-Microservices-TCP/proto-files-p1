@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package common.types;
 
-import "proto-files/common/common_enums.proto";
+import "common/common_enums.proto";
 
 message Money {
   int64 total_cents = 1;
