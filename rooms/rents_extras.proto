@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package rooms.rentsExtras;
 
-import "proto-files/common/common_types.proto";
+import "common/common_types.proto";
 
 // Enums ---------------------------------------
 
