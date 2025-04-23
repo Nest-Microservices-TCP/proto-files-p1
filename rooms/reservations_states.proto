@@ -27,10 +27,14 @@ message FindOneReservationStateRequest {
 
 // ----------------------------------------------
 // Response Messages ----------------------------
+message FindReservationsStatesResponse {
+  repeated ReservationState reservations_states = 1;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service ReservationsStatesService {
   rpc Save (CreateReservationStateRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneReservationStateRequest) returns (ReservationState);
+  rpc Find (google.protobuf.Empty) returns (FindReservationsStatesResponse);
 }
