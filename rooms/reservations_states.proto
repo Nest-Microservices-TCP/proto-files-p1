@@ -25,6 +25,10 @@ message FindOneReservationStateRequest {
   string reservation_state_id = 1;
 }
 
+message FindReservationsStatesByIdsRequest {
+  repeated string reservations_states_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 message FindReservationsStatesResponse {
@@ -37,4 +41,5 @@ service ReservationsStatesService {
   rpc Save (CreateReservationStateRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneReservationStateRequest) returns (ReservationState);
   rpc Find (google.protobuf.Empty) returns (FindReservationsStatesResponse);
+  rpc FindByIds (FindReservationsStatesByIdsRequest) returns (FindReservationsStatesResponse);
 }
