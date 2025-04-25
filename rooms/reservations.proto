@@ -35,6 +35,12 @@ message Reservation {
 
 // ---------------------------------------------
 // Request Messages ----------------------------
+message CreateReservationRequest {
+  google.protobuf.Timestamp checkout_date = 1;
+  google.protobuf.Timestamp departure_at = 2;
+  int32 people_quantity = 3;
+  ReservationOrigin origin = 4;
+}
 
 // ----------------------------------------------
 // Response Messages ----------------------------
