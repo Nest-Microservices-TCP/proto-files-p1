@@ -1,0 +1,44 @@
+syntax = "proto3";
+
+package rooms.reservations;
+
+import "common/common_enums.proto";
+import "google/protobuf/timestamp.proto";
+
+// Enums ---------------------------------------
+enum ReservationOrigin {
+  EMAIL = 0;
+  PHONE = 1;
+}
+
+enum ReservationState {
+  ASSIGNED = 0;
+  UNASSIGNED = 1;
+  NO_SHOW = 2;
+  CHECK_IN = 3;
+}
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message Reservation {
+  string reservation_id = 1;
+  google.protobuf.Timestamp checkout_date = 2;
+  google.protobuf.Timestamp departure_at = 3;
+  int32 people_quantity = 4;
+  ReservationState state = 5;
+  common.Money total = 6;
+  int64 total_cents = 6;
+  string total_currency = 7;
+  ReservationOrigin origin = 8;
+  int64 outstanding_balance_cents = 8;
+  string outstanding_balance_currency = 9;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
