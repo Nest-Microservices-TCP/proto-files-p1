@@ -38,6 +38,16 @@ message Reservation {
 
 // ----------------------------------------------
 // Response Messages ----------------------------
+message ReservationResponse {
+  string reservation_id = 1;
+  google.protobuf.Timestamp checkout_date = 2;
+  google.protobuf.Timestamp departure_at = 3;
+  int32 people_quantity = 4;
+  ReservationState state = 5;
+  common.enums.Money total = 6;
+  ReservationOrigin origin = 7;
+  common.enums.Money outstanding_balance = 8;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
