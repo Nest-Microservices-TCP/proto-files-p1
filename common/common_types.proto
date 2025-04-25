@@ -5,6 +5,6 @@ package common.types;
 import "common/common_enums.proto";
 
 message Money {
-  int64 total_cents = 1;
+  int64 amount_cents = 1;
   common.enums.Currency currency = 2;
 }
