@@ -26,7 +26,6 @@ message Reservation {
   google.protobuf.Timestamp departure_at = 3;
   int32 people_quantity = 4;
   ReservationState state = 5;
-  common.Money total = 6;
   int64 total_cents = 6;
   string total_currency = 7;
   ReservationOrigin origin = 8;
