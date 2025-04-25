@@ -29,8 +29,8 @@ message Reservation {
   int64 total_cents = 6;
   string total_currency = 7;
   ReservationOrigin origin = 8;
-  int64 outstanding_balance_cents = 8;
-  string outstanding_balance_currency = 9;
+  int64 outstanding_balance_cents = 9;
+  string outstanding_balance_currency = 10;
 }
 
 // ---------------------------------------------
