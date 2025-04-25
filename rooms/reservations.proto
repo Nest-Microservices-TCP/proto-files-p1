@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package rooms.reservations;
 
-import "common/common_enums.proto";
+import "common/common_types.proto";
 import "google/protobuf/timestamp.proto";
 
 // Enums ---------------------------------------
@@ -44,9 +44,9 @@ message ReservationResponse {
   google.protobuf.Timestamp departure_at = 3;
   int32 people_quantity = 4;
   ReservationState state = 5;
-  common.enums.Money total = 6;
+  common.types.Money total = 6;
   ReservationOrigin origin = 7;
-  common.enums.Money outstanding_balance = 8;
+  common.types.Money outstanding_balance = 8;
 }
 
 // ----------------------------------------------
