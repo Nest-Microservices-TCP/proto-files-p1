@@ -3,6 +3,7 @@ syntax = "proto3";
 package rooms.reservations;
 
 import "common/common_types.proto";
+import "google/protobuf/empty.proto";
 import "google/protobuf/timestamp.proto";
 
 // Enums ---------------------------------------
@@ -57,3 +58,6 @@ message ReservationResponse {
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
+service ReservationsService {
+  rpc Save (CreateReservationRequest) returns (google.protobuf.Empty);
+}
