@@ -60,9 +60,14 @@ message ReservationResponse {
   common.types.Money outstanding_balance = 8;
 }
 
+message FindReservationsResponse {
+  repeated ReservationResponse reservations = 1;
+}
+
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service ReservationsService {
   rpc Save (CreateReservationRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneReservationRequest) returns (ReservationResponse);
+  rpc Find (google.protobuf.Empty) returns (FindReservationsResponse);
 }
