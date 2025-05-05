@@ -1,0 +1,38 @@
+syntax = "proto3";
+
+package auth.users;
+
+import "google/protobuf/empty.proto";
+import "google/protobuf/timestamp.proto";
+
+// Enums ---------------------------------------
+
+// ---------------------------------------------
+// Entities ------------------------------------
+message User {
+  string user_id = 1;
+  string full_name = 2;
+  string nickname = 3;
+  string email = 4;
+  string password = 5;
+  bool is_email_verified = 6;
+  google.protobuf.Timestamp last_login_at = 7;
+}
+
+// ---------------------------------------------
+// Request Messages ----------------------------
+message CreateUserRequest {
+  string full_name = 1;
+  string nickname = 2;
+  string email = 3;
+  string password = 4;
+}
+
+// ----------------------------------------------
+// Response Messages ----------------------------
+
+// ----------------------------------------------
+// RPC Methods ----------------------------------
+service UsersService {
+  rpc Save (CreateUserRequest) returns (google.protobuf.Empty);
+}
