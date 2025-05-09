@@ -32,12 +32,20 @@ message FindOneUserRequest {
   string user_id = 1;
 }
 
+message FindUsersByIdsRequest {
+  repeated string users_ids = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
+message FindUsersResponse {
+  repeated User users = 1;
+}
 
 // ----------------------------------------------
 // RPC Methods ----------------------------------
 service UsersService {
   rpc Save (CreateUserRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneUserRequest) returns (User);
+  rpc FindByIds (FindUsersByIdsRequest) returns (FindUsersResponse);
 }
