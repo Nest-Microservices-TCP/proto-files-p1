@@ -47,5 +47,6 @@ message FindUsersResponse {
 service UsersService {
   rpc Save (CreateUserRequest) returns (google.protobuf.Empty);
   rpc FindOne (FindOneUserRequest) returns (User);
+  rpc Find (google.protobuf.Empty) returns (FindUsersResponse);
   rpc FindByIds (FindUsersByIdsRequest) returns (FindUsersResponse);
 }
