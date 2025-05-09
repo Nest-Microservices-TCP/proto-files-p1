@@ -28,6 +28,10 @@ message CreateUserRequest {
   string password = 4;
 }
 
+message FindOneUserRequest {
+  string user_id = 1;
+}
+
 // ----------------------------------------------
 // Response Messages ----------------------------
 
@@ -35,4 +39,5 @@ message CreateUserRequest {
 // RPC Methods ----------------------------------
 service UsersService {
   rpc Save (CreateUserRequest) returns (google.protobuf.Empty);
+  rpc FindOne (FindOneUserRequest) returns (User);
 }
